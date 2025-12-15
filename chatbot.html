@@ -18,10 +18,7 @@
       function ChatInput() {
         return (
           <>
-            <input 
-              placeholder="Send a message to Chatbot"
-              size="30" 
-            />
+            <input placeholder="Send a message to Chatbot" size="30" />
             <button>Send</button>
           </>
         );
@@ -59,29 +56,20 @@
         return (
           <>
             <ChatInput />
-            <ChatMessage 
-              message="Hello Chatbot!" 
+            <ChatMessage message="Hello Chatbot!" sender="user" />
+            <ChatMessage message="Hello!How Can I help you?" sender="robot" />
+            <ChatMessage
+              message="Can you get me today's date?!"
               sender="user"
             />
-            <ChatMessage 
-              message="Hello!How Can I help you?" 
-              sender="robot" 
-            />
-            <ChatMessage 
-              message="Can you get me today's date?!" 
-              sender="user" 
-            />
-            <ChatMessage 
-              message="Today is December 11" 
-              sender="robot" 
-            />
+            <ChatMessage message="Today is December 11" sender="robot" />
           </>
         );
       }
 
       const container = document.querySelector(".js-container");
-      ReactDOM.render(<App />, container);
-      // ReactDOM.creatReact(container).render(app);
+      // ReactDOM.render(<App />, container);
+      ReactDOM.createRoot(container).render(app);
     </script>
   </body>
 </html>

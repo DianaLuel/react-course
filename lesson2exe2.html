@@ -15,21 +15,41 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-
-      function ProductDetails({ item_name, item_price, discountPrice}) {
+      function ProductDetails({
+        item_name,
+        item_price,
+        discountPrice,
+        imagesrc,
+      }) {
         return (
+          // <div>
+          //   {item_name}
+          //   {!discountPrice && (
+          //     <p> Price: ${item_price}</p>
+          //   )}
+          //   {discountPrice && (
+          //     <>
+          //       <p><del> Price: ${item_price} </del></p>
+          //       <p>Discount price: ${discountPrice}</p>
+          //     </>
+          //   )}
+
+          //   <button>Add to Cart</button>
+          // </div>
+
           <div>
-            {item_name}
-            {!discountPrice && (
-              <p> Price: ${item_price}</p>
-            )}
-            {discountPrice && (
+            <img src={imageSrc} width="150" />
+            <p>{item_name}</p>
+            {discountPrice ? (
               <>
-                <p><del> Price: ${item_price} </del></p>
+                <p>
+                  <del> Price: ${item_price} </del>
+                </p>
                 <p>Discount price: ${discountPrice}</p>
               </>
+            ) : (
+              <p> Price: ${item_price} </p>
             )}
-
             <button>Add to Cart</button>
           </div>
         );
@@ -39,12 +59,21 @@
         return (
           <>
             <ProductDetails
-                item_name="Cotton socks"
-                item_price="10.90"
-                discountPrice ="5.45"
-              />
-            <ProductDetails item_name="Tennis balls" item_price="6.00" />
-            <ProductDetails item_name="Plain T-Shirt" item_price="7.99" />
+              item_name="Cotton socks"
+              item_price="10.90"
+              discountPrice="5.45"
+              imageSrc="https://supersimple.dev/images/cotton-socks.png"
+            />
+            <ProductDetails
+              item_name="Tennis balls"
+              item_price="6.00"
+              imageSrc="https://supersimple.dev/images/tennis-balls.png"
+            />
+            <ProductDetails
+              item_name="Plain T-Shirt"
+              item_price="7.99"
+              imageSrc="https://supersimple.dev/images/plain-t-shirt.png"
+            />
           </>
         );
       }
