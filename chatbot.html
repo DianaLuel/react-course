@@ -30,15 +30,6 @@
         // const sender = props.sender;
         // const { message, sender } = props;
 
-        // if (sender === "robot") {
-        //   return (
-        //     <div>
-        //       <img src="robot.png" width="50" alt="bot image" />
-        //       {message}
-        //     </div>
-        //   )
-        // }
-
         return (
           <div>
             {sender === "robot" && (
@@ -52,64 +43,50 @@
         );
       }
 
-      function App() {
+      function ChatMessages() {
         const chatMessages = [{
             message: 'Hello Chatbot!',
-            sender: 'user'
+            sender: 'user',
+            id: 'id1'
           }, {
             message: 'Hello!How Can I help you?',
-            sender: 'robot'
+            sender: 'robot',
+            id: 'id2'
           }, {
             message: "Can you get me today's date?",
-            sender: 'user'
+            sender: 'user',
+            id: 'id3'
           }, {
             message: 'Today is December 11',
-            sender: 'robot'
+            sender: 'robot',
+            id: 'id4'
           }];
 
-        //   const chatMessageComponents = chatMessages.map((chatMessage) => {
-        //     return (
-        //       <ChatMessage
-        //       message = {chatMessage.message}
-        //       sender = {chatMessage.sender}
-        //       />
-        //     );
-        //   }
-        // );
         return (
-      
-          // <>
-          // <ChatInput/>
-          // {chatMessageComponents}
+          <>
+            {chatMessages.map((chatMessage) => {
+              return (
+                <ChatMessage
+                message = {chatMessage.message}
+                sender = {chatMessage.sender}
+                key = {chatMessage.id}
+                />
+              );
+            }
+          )}
+        </>
+        )
+      }
 
-          // </>
+      function App() {
+        
+        return (
 
           <>
-          <ChatInput/>
-          {chatMessages.map((chatMessage) => {
-            return (
-              <ChatMessage
-              message = {chatMessage.message}
-              sender = {chatMessage.sender}
-              />
-            );
-          }
-        )}
-
+            <ChatInput/>
+            <ChatMessages />
           </>
 
-        /*
-          <>
-            <ChatInput />
-            <ChatMessage message="Hello Chatbot!" sender="user" />
-            <ChatMessage message="Hello!How Can I help you?" sender="robot" />
-            <ChatMessage
-              message="Can you get me today's date?"
-              sender="user"
-            />
-            <ChatMessage message="Today is December 11" sender="robot" />
-          </>
-          */
         );
       }
 
